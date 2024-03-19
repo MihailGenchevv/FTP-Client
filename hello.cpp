@@ -156,8 +156,16 @@ int generateAllSubsequenceOfArray(){
 
 }
 
-
+pair<int, int> swapInts(pair<int, int> p ){
+    return {p.second, p.first};
+}
 int main() {
+    int a = 5,
+        b = 10;
 
-    generateAllSubsequenceOfArray();
+    pair<int, int> p = {a, b };
+    pair<int , int > newPair = swapInts(p);
+
+    cout << newPair.first << " " << newPair.second;
+
 }
