@@ -132,7 +132,7 @@ int numberToBinary() {
 }
 
 
-int generateAllSubsequenceOfArray(){
+void generateAllSubsequenceOfArray(){
 
     int n;
 
@@ -153,19 +153,73 @@ int generateAllSubsequenceOfArray(){
         }
 
     }
-
 }
 
-pair<int, int> swapInts(pair<int, int> p ){
-    return {p.second, p.first};
+void swapInts(int& a, int& b) {
+    int c = a;
+    a = b;
+    b = c;
+}
+
+
+void selectionSort(int arr[], const int n) {
+
+    for (int i =0; i < n; i++){
+        int minEl = arr[i],
+            minElIdx = i;
+        for (int j = i + 1; j < n; j ++){
+            if (minEl > arr[j]){
+                minEl = arr[j];
+                minElIdx = j;
+            }
+        }
+        swapInts(arr[i], arr[minElIdx]);
+    }
+}
+
+void bubbleSort(int arr[] , int n) {
+    for (int i = 0 ; i < n; i++ ){
+        for (int j = 0; j < n - i - 1; j++){
+            if (arr[j] > arr[j+ 1]){
+                swapInts(arr[j], arr[j+1]);
+            }
+        }
+    }
+}
+
+void insertionSort(int arr[], int n ){
+
+    for (int i = 0; i < n; i++ ){
+        int j = i;
+        while( j > 0 and arr[j] <= arr[j - 1]) {
+            swapInts(arr[j], arr[j-1]);
+            j--;
+        }
+    }
+}
+
+void printArray(int arr[], int n) {
+    for(int i = 0; i < n; i++){
+        cout << arr[i] << " ";
+    }
 }
 int main() {
     int a = 5,
         b = 10;
 
-    pair<int, int> p = {a, b };
-    pair<int , int > newPair = swapInts(p);
+    swapInts(a, b );
+    cout << "a: " << a << " b: " << b << endl;
 
-    cout << newPair.first << " " << newPair.second;
+    const int N = 10;
+
+    int arr[N] = {1,2,-1,7,11,20,9,14,-4,13};
+
+    bubbleSort(arr, N);
+    printArray(arr, N);
+
+
+
+
+
 
 }
