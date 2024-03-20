@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include <cmath>
 
 using namespace  std;
 
@@ -203,23 +203,25 @@ void printArray(int arr[], int n) {
         cout << arr[i] << " ";
     }
 }
+
+double const EPSILON = pow(10, -9);
+
+bool AreEqual(const double a, const double b) {
+    return (fabs(a - b) < EPSILON);
+}
+
+void PrintArray(const int arr[], const int arrSize) {
+    for (int i = 0; i < arrSize; i++ ) {
+        cout << arr[i] << ' ';
+    }
+}
 int main() {
-    int a = 5,
-        b = 10;
 
-    swapInts(a, b );
-    cout << "a: " << a << " b: " << b << endl;
-
-    const int N = 10;
-
-    int arr[N] = {1,2,-1,7,11,20,9,14,-4,13};
-
-    bubbleSort(arr, N);
-    printArray(arr, N);
-
-
-
-
+    char cArr[6] = {'1','2','3','4','6','7'};
+    char str[10] = {'A','B','C','D','E','F','G','H','E','Y'};
+    for (int i = 0; str[i] != '\0'; i++){
+        cout << str[i] << ' ';
+    }
 
 
 }
